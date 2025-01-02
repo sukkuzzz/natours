@@ -43,7 +43,6 @@ const server = app.listen(port, () => {
 // Here basically on unhandledrejection we gracefull shut down the app
 process.on("unhandledRejection", (err) => {
   console.log("UNHANDLED REJECTION! 💥 Shutting down...");
-  console.log(err.name, err.message);
   // Usually we first shut down the server and then the application. SMOOTH
   server.close(() => {
     process.exit(1);
@@ -63,6 +62,5 @@ process.on("SIGTERM", () => {
 
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
-  console.log(err.name, err.message);
   process.exit(1);
 });

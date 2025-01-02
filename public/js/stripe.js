@@ -16,7 +16,6 @@ export const bookTour = async (tourId) => {
       // Frontend and backend are running ont the same origin, so the url is relative starting from /api/
       url: `/api/v1/bookings/checkout-session/${tourId}`,
     });
-    console.log(session);
 
     // // 2) Create checkout form + charge credit card
     // // Now this code will redirect to the checkout page
@@ -26,7 +25,6 @@ export const bookTour = async (tourId) => {
     //   sessionId: session.data.session.id,
     // });
   } catch (err) {
-    console.log(err);
     showAlert("error", err);
   }
 };
