@@ -19,6 +19,7 @@ router.get(
 router.get("/tour/:slug", authController.isLoggedIn, viewsController.getTour);
 
 // The below route is for login page
+router.get("/signup", authController.isLoggedIn, viewsController.getSignupForm);
 router.get("/login", authController.isLoggedIn, viewsController.getLoginForm);
 
 router.get("/me", authController.protect, viewsController.getAccount);

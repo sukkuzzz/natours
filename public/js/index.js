@@ -4,10 +4,12 @@ import { login, logout } from "./login";
 import { updateSettings } from "./updateSettings";
 import { bookTour } from "./stripe";
 import { showAlert } from "./alerts";
+import { signup } from "./signup";
 
 // DOM ELEMENTS
 const mapBox = document.getElementById("map");
 const loginForm = document.querySelector(".form--login");
+const signupForm = document.querySelector(".signed--up");
 const logOutBtn = document.querySelector(".nav__el--logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
@@ -28,6 +30,22 @@ if (loginForm)
     // console.log(email);
     login(email, password);
   });
+if (signupForm) {
+  signupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const passwordConfirm = document.getElementById("passwordConfirm").value;
+    // console.log(email);
+    try {
+      signup(name, email, password, passwordConfirm);
+    } catch (err) {
+      // console.log(err);
+      showAlert("error", err.response.data.message);
+    }
+  });
+}
 
 if (logOutBtn) logOutBtn.addEventListener("click", logout);
 

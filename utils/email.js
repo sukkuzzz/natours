@@ -58,26 +58,26 @@ module.exports = class Email {
     // Using SMTP relay and Brevo service
     // For Now BREVO-SERVICE IS NOT Working, we'll figure this out later
     // For now for production, we Will use the mailtrappper only
-    // if (process.env.NODE_ENV === "production") {
-    //   return nodemailer.createTransport({
-    //     host: process.env.BREVO_HOST,
-    //     port: process.env.BREVO_PORT,
-    //     auth: {
-    //       user: process.env.BREVO_LOGIN,
-    //       pass: process.env.BREVO_PASSWORD,
-    //     },
-    //   });
-    // }
-
     if (process.env.NODE_ENV === "production") {
       return nodemailer.createTransport({
-        service: "SendGrid",
+        host: process.env.BREVO_HOST,
+        port: process.env.BREVO_PORT,
         auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD,
+          user: process.env.BREVO_LOGIN,
+          pass: process.env.BREVO_PASSWORD,
         },
       });
     }
+
+    // if (process.env.NODE_ENV === "production") {
+    //   return nodemailer.createTransport({
+    //     service: "SendGrid",
+    //     auth: {
+    //       user: process.env.SENDGRID_USERNAME,
+    //       pass: process.env.SENDGRID_PASSWORD,
+    //     },
+    //   });
+    // }
 
     // If we are in development then simple we will send fake emails using mail trapper, instead of going into a real mail address the mails will be caught in a mailtrap inbox
     return nodemailer.createTransport({
@@ -104,7 +104,7 @@ module.exports = class Email {
 
     // 2) Define email options
     const mailOptions = {
-      from: `sukriti.sharma.met21@itbhu.ac.in`,
+      from: `sukriti.001sharma@gmail.com`,
       to: this.to,
       subject,
       // We are basically sending the rendered html in the email
