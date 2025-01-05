@@ -1,4 +1,4 @@
-link :- https://natours-goth.onrender.com
+link :- https://natours-rdu8.onrender.com
 ![2](https://github.com/user-attachments/assets/6f7e8073-b799-41f9-a523-8c23de067f74)
 I built a full-stack $${\color{red}Tour Management}$$ System using $${\color{red}Node.js, Express.js, MongoDB,}$$ and $${\color{red}Pug}$$. The application allows users to explore, book, and manage tours efficiently. The backend handles tour data and user interactions through secure and $${\color{red}well-structured APIs}$$, while the frontend, built with Pug, provides a dynamic and user-friendly interface. The home page displays ongoing tours with real-time updates and a section featuring reviews and highlights for past tours. This project showcases robust backend development and a visually appealing and functional frontend.
 
